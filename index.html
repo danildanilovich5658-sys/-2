@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Добро пожаловать в наш магазин!</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                {{ product.name }} — {{ product.price }}💎
+                <a href="{{ url_for('add_to_cart', product_id=product.id) }}">Добавить в корзину</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <p><a href="{{ url_for('show_cart') }}">Перейти в корзину</a></p>
+</body>
+</html>
